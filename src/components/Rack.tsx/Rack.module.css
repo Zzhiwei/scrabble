@@ -1,0 +1,8 @@
+.Rack {
+  width: 308px;
+  height: 44px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid black;
+}

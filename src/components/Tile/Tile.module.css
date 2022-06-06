@@ -1,0 +1,13 @@
+.tile {
+  height: 41px;
+  width: 41px;
+  background-color: tan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter {
+  font-weight: 600;
+  font-size: 22px;
+}
