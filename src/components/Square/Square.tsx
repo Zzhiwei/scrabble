@@ -1,7 +1,6 @@
-import React from "react";
-import styles from "./css/Square.module.css";
+import styles from "./css/square.module.css";
 import { Droppable } from "react-beautiful-dnd";
-import Tile from "components/Tile";
+import Tile from "components/Tile/Tile";
 
 export default function Square({ tile, index }) {
   const hasTile = Boolean(tile.letter);

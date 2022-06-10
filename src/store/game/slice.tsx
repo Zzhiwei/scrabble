@@ -1,5 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { tiles } from "store/game/initialData";
+import { bag } from "store/game/initialData";
 
 const gameSlice = createSlice({
   name: "game",
@@ -10,7 +10,7 @@ const gameSlice = createSlice({
       //   status: "fixed", //'fixed' or changeable
     }),
     rack: [],
-    bag: tiles,
+    bag: bag,
   },
   reducers: {
     tilePlaced(state, action) {
@@ -59,4 +59,5 @@ export const {
   rackRearranged,
   tileRetractedToRack,
 } = gameSlice.actions;
+
 export default gameSlice.reducer;

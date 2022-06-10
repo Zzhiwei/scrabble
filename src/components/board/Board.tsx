@@ -1,8 +1,8 @@
 import React from "react";
-import Square from "./Square";
+import Square from "components/Square/Square";
 import styles from "./css/Board.module.css";
 import { DragDropContext } from "react-beautiful-dnd";
-import Rack from "./Rack";
+import Rack from "components/Rack/Rack";
 import { useSelector, useDispatch } from "react-redux";
 import {
   rackRearranged,

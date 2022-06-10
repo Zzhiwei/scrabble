@@ -1,4 +1,6 @@
-export const tiles = [
+import type { InitialState } from "store/game/initialData.d.ts";
+
+export const bag = [
   { letter: "a", id: "a1" },
   { letter: "a", id: "a2" },
   { letter: "a", id: "a3" },
@@ -100,3 +102,13 @@ export const tiles = [
   { letter: "blank", id: "blank1" },
   { letter: "blank", id: "blank2" },
 ];
+
+const initialState: InitialState = {
+  board: new Array(225).fill({
+    letter: null,
+    id: null,
+    //   status: "fixed", //'fixed' or changeable
+  }),
+  rack: [],
+  bag: bag,
+};

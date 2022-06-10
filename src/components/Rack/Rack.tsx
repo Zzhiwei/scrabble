@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { tilesDrawn } from "store/game/slice";
 import styles from "./css/Rack.module.css";
-import Tile from "./Tile";
+import Tile from "components/Tile/Tile";
 
 export default function Rack() {
   const rack = useSelector((state) => state.game.rack);
