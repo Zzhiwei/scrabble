@@ -1,6 +1,6 @@
-import type { InitialState } from "store/game/initialData.d.ts";
+import type { Bag, InitialState } from "interface/store/initialData";
 
-export const bag = [
+export const bag: Bag = [
   { letter: "a", id: "a1" },
   { letter: "a", id: "a2" },
   { letter: "a", id: "a3" },
@@ -103,7 +103,7 @@ export const bag = [
   { letter: "blank", id: "blank2" },
 ];
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
   board: new Array(225).fill({
     letter: null,
     id: null,

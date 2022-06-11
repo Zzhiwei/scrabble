@@ -1,9 +1,8 @@
-import React from "react";
 import Square from "components/Square/Square";
 import styles from "./css/Board.module.css";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import Rack from "components/Rack/Rack";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "store/hook";
 import {
   rackRearranged,
   removedFromRack,
@@ -28,11 +27,10 @@ const horizontalLabels = new Array(15).fill(1).map((x, index) => {
 });
 
 const Board = () => {
-  const dispatch = useDispatch();
-  const boardState = useSelector((state) => state.game.board);
+  const dispatch = useAppDispatch();
+  const boardState = useAppSelector((state) => state.game.board);
 
-  const onDragEnd = (result) => {
-    console.log(result);
+  const onDragEnd = (result: DropResult) => {
     if (result.destination.droppableId === "rack") {
       if (result.source.droppableId !== "rack") {
         return dispatch(

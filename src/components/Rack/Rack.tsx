@@ -1,16 +1,14 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useEffect } from "react";
 import { Droppable } from "react-beautiful-dnd";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { tilesDrawn } from "store/game/slice";
 import styles from "./css/Rack.module.css";
 import Tile from "components/Tile/Tile";
+import { useAppDispatch, useAppSelector } from "store/hook";
 
 export default function Rack() {
-  const rack = useSelector((state) => state.game.rack);
-  const dispatch = useDispatch();
-  console.log("rack inside rack", rack);
+  const rack = useAppSelector((state) => state.game.rack);
+  const dispatch = useAppDispatch();
 
   // solves a problem with rack tiles not rendering properly after change
   const tempKey = useRef(0);

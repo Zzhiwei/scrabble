@@ -3,13 +3,15 @@ export interface Tile {
   id: string;
 }
 
+export interface NullableTile {
+  letter: string | null;
+  id: string | null;
+}
+
 export type Bag = Array<Tile>;
 
 export interface InitialState {
-  board: Tile[];
+  board: NullableTile[];
   rack: Tile[];
-  bag: {
-    letter: string;
-    id: string;
-  }[];
+  bag: Tile[];
 }

@@ -1,26 +1,26 @@
-import { createSlice, current } from "@reduxjs/toolkit";
-import { bag } from "store/game/initialData";
+import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
+import {
+  RackRearrangedPayload,
+  RemovedFromRackPayload,
+  TilePlacedPayload,
+  TileRetractedToRackPayload,
+} from "interface/store/game";
+import { initialState } from "store/game/initialData";
 
 const gameSlice = createSlice({
   name: "game",
-  initialState: {
-    board: new Array(225).fill({
-      letter: null,
-      id: null,
-      //   status: "fixed", //'fixed' or changeable
-    }),
-    rack: [],
-    bag: bag,
-  },
+  initialState,
   reducers: {
-    tilePlaced(state, action) {
+    tilePlaced(state, action: PayloadAction<TilePlacedPayload>) {
       state.board[action.payload.index] = {
         letter: action.payload.letter,
         id: action.payload.id,
       };
     },
-    tileRetractedToRack(state, action) {
-      console.log({ action });
+    tileRetractedToRack(
+      state,
+      action: PayloadAction<TileRetractedToRackPayload>
+    ) {
       state.rack.splice(action.payload.index, 0, {
         letter: action.payload.letter,
         id: action.payload.draggableId,
@@ -39,12 +39,12 @@ const gameSlice = createSlice({
       const [removedLetter] = state.bag.splice(randIndex, 1);
       state.rack.push(removedLetter);
     },
-    removedFromRack(state, action) {
+    removedFromRack(state, action: PayloadAction<RemovedFromRackPayload>) {
       state.rack = state.rack.filter(
         (tile) => tile.id !== action.payload.draggableId
       );
     },
-    rackRearranged(state, action) {
+    rackRearranged(state, action: PayloadAction<RackRearrangedPayload>) {
       const { sourceIndex, destinationIndex } = action.payload;
       const [removedLetter] = state.rack.splice(sourceIndex, 1);
       state.rack.splice(destinationIndex, 0, removedLetter);
