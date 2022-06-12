@@ -1,9 +1,7 @@
-// import Board from "components/board/Board";
-
-import Tile from "components/Tile/Tile";
+import Board from "components/board/Board";
 
 function App() {
-  return <Tile letter={"a"} index={3} id={"a"} />;
+  return <Board />;
 }
 
 export default App;

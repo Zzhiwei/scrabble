@@ -1,8 +1,9 @@
-import styles from "./css/square.module.css";
+import styles from "components/Square/Square.module.css";
 import { Droppable } from "react-beautiful-dnd";
 import Tile from "components/Tile/Tile";
+import { SquareProps } from "interface/components/Square";
 
-export default function Square({ tile, index }) {
+export default function Square({ tile, index }: SquareProps) {
   const hasTile = Boolean(tile.letter);
 
   return (
@@ -15,7 +16,9 @@ export default function Square({ tile, index }) {
             snapshot.isDraggingOver ? styles.highlight : ""
           }`}
         >
-          {hasTile && <Tile letter={tile.letter} id={tile.id} index={0} />}
+          {/* <ErrorBoundary FallbackComponent={null}> */}
+          {hasTile && <Tile letter={tile.letter!} id={tile.id!} index={0} />}
+          {/* </ErrorBoundary> */}
           {provided.placeholder}
         </div>
       )}

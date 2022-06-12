@@ -1,5 +1,5 @@
 import Square from "components/Square/Square";
-import styles from "./css/Board.module.css";
+import styles from "components/board/Board.module.css";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import Rack from "components/Rack/Rack";
 import { useAppDispatch, useAppSelector } from "store/hook";
@@ -8,6 +8,7 @@ import {
   removedFromRack,
   tilePlaced,
   tileRetractedToRack,
+  tileMovedOnBoard,
 } from "store/game/slice";
 
 const verticalLabels = new Array(15).fill(1).map((x, index) => {
@@ -26,49 +27,64 @@ const horizontalLabels = new Array(15).fill(1).map((x, index) => {
   );
 });
 
+// board doesn't make use of index in 'source' and 'destination' property
+
 const Board = () => {
   const dispatch = useAppDispatch();
   const boardState = useAppSelector((state) => state.game.board);
 
   const onDragEnd = (result: DropResult) => {
-    if (result.destination.droppableId === "rack") {
+    if (!result.destination) {
+      return;
+    }
+
+    const destination = result.destination!;
+    if (destination.droppableId === "rack") {
+      // 1)move from board to rack
       if (result.source.droppableId !== "rack") {
         return dispatch(
           tileRetractedToRack({
             letter: result.draggableId[0],
             draggableId: result.draggableId,
-            index: result.destination.index,
-            squareIndex: result.source.droppableId,
+            index: destination.index,
+            squareIndex: Number(result.source.droppableId),
           })
         );
       }
 
-      // move from rack to rack
+      // 2)move from rack to rack
       return dispatch(
         rackRearranged({
           sourceIndex: result.source.index,
-          destinationIndex: result.destination.index,
+          destinationIndex: destination.index,
         })
       );
     }
 
-    // place tile on board
+    if (result.source.droppableId !== "rack") {
+      // 3)move from board to board
+      return dispatch(
+        tileMovedOnBoard({
+          sourceIndex: Number(result.source.droppableId),
+          destinationIndex: Number(result.destination.droppableId),
+        })
+      );
+    }
+
+    // 4)move from rack to board
     dispatch(
       tilePlaced({
-        index: Number(result.destination.droppableId),
+        index: Number(destination.droppableId),
         id: result.draggableId,
         letter: result.draggableId[0],
       })
     );
 
-    // remove from rack
     dispatch(
       removedFromRack({
         draggableId: result.draggableId,
       })
     );
-
-    //remove tile from rack
   };
 
   return (

@@ -1,6 +1,6 @@
 import { Draggable } from "react-beautiful-dnd";
 import styles from "components/Tile/Tile.module.css";
-import { Tileprops } from "interface/Tile";
+import { Tileprops } from "interface/components/Tile";
 
 export default function Tile({ letter, index, id }: Tileprops) {
   return (

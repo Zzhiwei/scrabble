@@ -1,23 +1,31 @@
-import { useRef } from "react";
+import { Key, useRef } from "react";
 import { useEffect } from "react";
 import { Droppable } from "react-beautiful-dnd";
-import { tilesDrawn } from "store/game/slice";
-import styles from "./css/Rack.module.css";
-import Tile from "components/Tile/Tile";
+import { clearRack, tilesDrawn } from "store/game/slice";
+import styles from "components/Rack/Rack.module.css";
 import { useAppDispatch, useAppSelector } from "store/hook";
+import { Tile as TileType } from "interface/store/initialData";
+import Tile from "components/Tile/Tile";
 
 export default function Rack() {
   const rack = useAppSelector((state) => state.game.rack);
   const dispatch = useAppDispatch();
 
+  const executedRef = useRef(false);
   // solves a problem with rack tiles not rendering properly after change
   const tempKey = useRef(0);
   tempKey.current++;
 
   useEffect(() => {
+    if (executedRef.current) {
+      return;
+    }
+
     for (let i = 0; i < 7; i++) {
       dispatch(tilesDrawn());
     }
+
+    executedRef.current = true;
   }, []);
 
   return (
@@ -29,8 +37,7 @@ export default function Rack() {
             {...provided.droppableProps}
             className={styles.Rack}
           >
-            {/* <TilesInRack rack={rack} /> */}
-            <TilesInRack key={tempKey.current} rack={rack} />
+            <TilesInRack rack={rack} key={tempKey.current} />
             {provided.placeholder}
           </div>
         );
@@ -39,8 +46,19 @@ export default function Rack() {
   );
 }
 
-const TilesInRack = ({ rack }) => {
-  return rack.map((tile, index) => {
-    return <Tile key={index} letter={tile.letter} index={index} id={tile.id} />;
-  });
+const TilesInRack = ({ rack }: TilesInRackProps): JSX.Element => {
+  return (
+    <>
+      {rack.map((tile, index) => {
+        console.log(tile, index);
+        return (
+          <Tile key={index} letter={tile.letter} index={index} id={tile.id} />
+        );
+      })}
+    </>
+  );
 };
+
+interface TilesInRackProps {
+  rack: TileType[];
+}

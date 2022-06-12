@@ -103,12 +103,14 @@ export const bag: Bag = [
   { letter: "blank", id: "blank2" },
 ];
 
+export const NULL_TILE = {
+  letter: null,
+  id: null,
+  // status: "fixed", //'fixed' or changeable
+};
+
 export const initialState: InitialState = {
-  board: new Array(225).fill({
-    letter: null,
-    id: null,
-    //   status: "fixed", //'fixed' or changeable
-  }),
+  board: new Array(225).fill(NULL_TILE),
   rack: [],
   bag: bag,
 };

@@ -19,3 +19,8 @@ export interface RackRearrangedPayload {
   sourceIndex: number;
   destinationIndex: number;
 }
+
+export interface TileMovedOnBoardPayload {
+  sourceIndex: number;
+  destinationIndex: number;
+}

@@ -15,12 +15,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "src/components/Tile",
-    "src/components/Rack"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

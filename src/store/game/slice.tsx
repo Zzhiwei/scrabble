@@ -2,10 +2,11 @@ import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
 import {
   RackRearrangedPayload,
   RemovedFromRackPayload,
+  TileMovedOnBoardPayload,
   TilePlacedPayload,
   TileRetractedToRackPayload,
 } from "interface/store/game";
-import { initialState } from "store/game/initialData";
+import { initialState, NULL_TILE } from "store/game/initialData";
 
 const gameSlice = createSlice({
   name: "game",
@@ -49,6 +50,16 @@ const gameSlice = createSlice({
       const [removedLetter] = state.rack.splice(sourceIndex, 1);
       state.rack.splice(destinationIndex, 0, removedLetter);
     },
+    clearRack(state) {
+      state.rack = [];
+    },
+    tileMovedOnBoard(state, action: PayloadAction<TileMovedOnBoardPayload>) {
+      const { sourceIndex, destinationIndex } = action.payload;
+      const oldTile = state.board[sourceIndex];
+      state.board[sourceIndex] = NULL_TILE;
+
+      state.board[destinationIndex] = oldTile;
+    },
   },
 });
 
@@ -58,6 +69,8 @@ export const {
   removedFromRack,
   rackRearranged,
   tileRetractedToRack,
+  clearRack,
+  tileMovedOnBoard,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
