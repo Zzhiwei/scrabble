@@ -1,7 +1,7 @@
 import { Key, useRef } from "react";
 import { useEffect } from "react";
 import { Droppable } from "react-beautiful-dnd";
-import { clearRack, tilesDrawn } from "store/game/slice";
+import { clearRack, tileDrawn } from "store/game/slice";
 import styles from "components/Rack/Rack.module.css";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { Tile as TileType } from "interface/store/initialData";
@@ -22,7 +22,7 @@ export default function Rack() {
     }
 
     for (let i = 0; i < 7; i++) {
-      dispatch(tilesDrawn());
+      dispatch(tileDrawn());
     }
 
     executedRef.current = true;

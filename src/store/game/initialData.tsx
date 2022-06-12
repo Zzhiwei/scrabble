@@ -1,4 +1,4 @@
-import type { Bag, InitialState } from "interface/store/initialData";
+import type { Bag, BoardTile, InitialState } from "interface/store/initialData";
 
 export const bag: Bag = [
   { letter: "a", id: "a1" },
@@ -99,14 +99,14 @@ export const bag: Bag = [
   { letter: "y", id: "y1" },
   { letter: "y", id: "y2" },
   { letter: "z", id: "z1" },
-  { letter: "blank", id: "blank1" },
-  { letter: "blank", id: "blank2" },
+  { letter: "*", id: "blank1" },
+  { letter: "*", id: "blank2" },
 ];
 
-export const NULL_TILE = {
+export const NULL_TILE: BoardTile = {
   letter: null,
   id: null,
-  // status: "fixed", //'fixed' or changeable
+  fixed: true,
 };
 
 export const initialState: InitialState = {

@@ -16,6 +16,7 @@ const gameSlice = createSlice({
       state.board[action.payload.index] = {
         letter: action.payload.letter,
         id: action.payload.id,
+        fixed: false,
       };
     },
     tileRetractedToRack(
@@ -28,12 +29,9 @@ const gameSlice = createSlice({
       });
 
       //remove tile from squre
-      state.board.splice(action.payload.squareIndex, 1, {
-        letter: null,
-        id: null,
-      });
+      state.board.splice(action.payload.squareIndex, 1, NULL_TILE);
     },
-    tilesDrawn(state) {
+    tileDrawn(state) {
       const len = state.bag.length;
       const randIndex = Math.floor(Math.random() * len); //[0, len)
       //remove from bag
@@ -65,7 +63,7 @@ const gameSlice = createSlice({
 
 export const {
   tilePlaced,
-  tilesDrawn,
+  tileDrawn,
   removedFromRack,
   rackRearranged,
   tileRetractedToRack,

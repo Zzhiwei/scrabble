@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Square from "components/Square/Square";
 import styles from "components/board/Board.module.css";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
@@ -32,6 +33,19 @@ const horizontalLabels = new Array(15).fill(1).map((x, index) => {
 const Board = () => {
   const dispatch = useAppDispatch();
   const boardState = useAppSelector((state) => state.game.board);
+  const [error, setError] = useState("");
+
+  const onConfirm = () => {
+    //check validity: can either do this utils style or in state management
+    // if (isValidMove(boardState)) {
+    //   return;
+    // }
+
+    setError("Invalid Move!");
+
+    //if invalid, show error msg
+    //if valid, lock all placed tiles
+  };
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) {
@@ -88,27 +102,31 @@ const Board = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className={styles.outer_container}>
-        <div className={styles.horizontal_label_container}>
-          {horizontalLabels}
-        </div>
-        <div style={{ display: "flex" }}>
-          <div className={styles.vertical_label_container}>
-            {verticalLabels}
+    <>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className={styles.outer_container}>
+          <div className={styles.horizontal_label_container}>
+            {horizontalLabels}
           </div>
-          <div className={styles.Board_container}>
-            {boardState.map((tile, index) => {
-              return <Square key={index} index={index} tile={tile} />;
-            })}
+          <div style={{ display: "flex" }}>
+            <div className={styles.vertical_label_container}>
+              {verticalLabels}
+            </div>
+            <div className={styles.Board_container}>
+              {boardState.map((tile, index) => {
+                return <Square key={index} index={index} tile={tile} />;
+              })}
+            </div>
           </div>
+          {/* <button onClick={() => setState(!state)}>click</button> */}
+          <form>{/* <input type="text" value={}></> */}</form>
         </div>
-        {/* <button onClick={() => setState(!state)}>click</button> */}
-        <form>{/* <input type="text" value={}></> */}</form>
-      </div>
 
-      <Rack></Rack>
-    </DragDropContext>
+        <Rack />
+      </DragDropContext>
+      <button onClick={onConfirm}>Confirm Moves</button>
+      <div></div>
+    </>
   );
 };
 
