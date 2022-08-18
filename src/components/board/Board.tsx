@@ -23,8 +23,8 @@ const verticalLabels = new Array(15).fill(1).map((x, index) => {
 
 const horizontalLabels = new Array(15).fill(1).map((x, index) => {
   return (
-    <div key={index} className={styles.vertical_label}>
-      {index + 1}
+    <div key={index} className={styles.horizontal_label}>
+      {String.fromCharCode(index + 65)}
     </div>
   );
 });

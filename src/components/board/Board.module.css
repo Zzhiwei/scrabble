@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(15, 1fr);
-  gap: 5px;
+  gap: 3px;
 }
 
 .outer_container {
@@ -26,8 +26,8 @@
 }
 
 .horizontal_label {
-  margin: auto;
   height: 20px;
+  text-align: center;
 }
 
 .horizontal_label_container {

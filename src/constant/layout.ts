@@ -1,6 +1,6 @@
 // shows square type:
 
-export const layout = {
+export const layout: Record<string, string> = {
   "0": "tw",
   "1": "",
   "2": "",

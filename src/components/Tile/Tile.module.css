@@ -1,13 +1,21 @@
 .tile {
-  height: 41px;
-  width: 41px;
-  background-color: tan;
+  height: 42px;
+  width: 42px;
+  background-color: #efd098;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 3px;
+  border-left: #f3dcb2 2px solid;
+  border-top: #f3dcb2 2px solid;
+  border-bottom: #cab081 2px solid;
+  border-right: #cab081 2px solid;
+  z-index: 10;
+  position: inherit;
 }
 
 .letter {
   font-weight: 600;
   font-size: 22px;
+  text-transform: uppercase;
 }
