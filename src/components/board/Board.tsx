@@ -10,6 +10,7 @@ import {
   tilePlaced,
   tileRetractedToRack,
   tileMovedOnBoard,
+  moveConfirmed,
 } from "store/game/slice";
 
 const verticalLabels = new Array(15).fill(1).map((x, index) => {
@@ -36,10 +37,10 @@ const Board = () => {
   const [error, setError] = useState("");
 
   const onConfirm = () => {
-    //check validity: can either do this utils style or in state management
-    // if (isValidMove(boardState)) {
-    //   return;
-    // }
+    // for now we will accept any words
+
+    // change placed tiles on board to be fixed
+    dispatch(moveConfirmed());
 
     setError("Invalid Move!");
 

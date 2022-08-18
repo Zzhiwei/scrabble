@@ -1,9 +1,14 @@
-import axios from "axios";
 import { BoardTile } from "interface/store/initialData";
 import { BoardTileWithIndex } from "interface/utils/utils";
 import { NULL_TILE } from "store/game/initialData";
 
-fetch(new Request("./dictionary.txt"));
+// import raw from "dion";
+
+export const test = () => {
+  fetch(new Request("./dictionary.txt"))
+    .then((resposne) => resposne.text())
+    .then((response) => console.log(response));
+};
 
 const getBoundaryLeft = (index: number) => {
   //index of first tile on the row

@@ -6,7 +6,7 @@ export interface Tile {
 export interface BoardTile {
   letter: string | null;
   id: string | null;
-  fixed: boolean | null;
+  fixed: boolean;
 }
 
 export type Bag = Array<Tile>;

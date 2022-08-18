@@ -16,9 +16,14 @@ export default function Square({ tile, index }: SquareProps) {
             snapshot.isDraggingOver ? styles.highlight : ""
           }`}
         >
-          {/* <ErrorBoundary FallbackComponent={null}> */}
-          {hasTile && <Tile letter={tile.letter!} id={tile.id!} index={0} />}
-          {/* </ErrorBoundary> */}
+          {hasTile && (
+            <Tile
+              letter={tile.letter!}
+              id={tile.id!}
+              index={0}
+              isDragDisabled={tile.fixed}
+            />
+          )}
           {provided.placeholder}
         </div>
       )}

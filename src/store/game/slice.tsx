@@ -58,6 +58,18 @@ const gameSlice = createSlice({
 
       state.board[destinationIndex] = oldTile;
     },
+    moveConfirmed(state) {
+      state.board = state.board.map((tile) => {
+        //NULL_TILE is true
+        if (!tile.fixed) {
+          return {
+            ...tile,
+            fixed: true,
+          };
+        }
+        return tile;
+      });
+    },
   },
 });
 
@@ -69,6 +81,7 @@ export const {
   tileRetractedToRack,
   clearRack,
   tileMovedOnBoard,
+  moveConfirmed,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

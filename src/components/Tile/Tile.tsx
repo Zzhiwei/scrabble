@@ -2,9 +2,9 @@ import { Draggable } from "react-beautiful-dnd";
 import styles from "components/Tile/Tile.module.css";
 import { Tileprops } from "interface/components/Tile";
 
-export default function Tile({ letter, index, id }: Tileprops) {
+export default function Tile({ letter, index, id, isDragDisabled }: Tileprops) {
   return (
-    <Draggable draggableId={id} index={index}>
+    <Draggable draggableId={id} index={index} isDragDisabled={isDragDisabled}>
       {(provided, snapshot) => (
         <div
           ref={provided.innerRef}

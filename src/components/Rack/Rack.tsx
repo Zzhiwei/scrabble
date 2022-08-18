@@ -52,7 +52,13 @@ const TilesInRack = ({ rack }: TilesInRackProps): JSX.Element => {
       {rack.map((tile, index) => {
         console.log(tile, index);
         return (
-          <Tile key={index} letter={tile.letter} index={index} id={tile.id} />
+          <Tile
+            key={index}
+            letter={tile.letter}
+            index={index}
+            id={tile.id}
+            isDragDisabled={false}
+          />
         );
       })}
     </>

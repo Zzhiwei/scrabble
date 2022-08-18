@@ -1,10 +1,11 @@
 .Square {
-  /* background-color: coral; */
-  height: 100%;
-  width: 100%;
-  border: 1px dotted gray;
+  background-color: #ebe9de;
+  height: 42px;
+  width: 42px;
+  border: 3px solid #efede2;
+  border-radius: 3px;
 }
 
 .highlight {
-  border: 2px solid red;
+  border: solid red;
 }
