@@ -1,1 +1,1 @@
-Build scrabble for fun.
+base UI for scrabble.

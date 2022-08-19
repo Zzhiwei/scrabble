@@ -1,6 +1,7 @@
 import { Draggable } from "react-beautiful-dnd";
 import styles from "components/Tile/Tile.module.css";
 import { Tileprops } from "interface/components/Tile";
+import { score } from "constant/score";
 
 export default function Tile({ letter, index, id, isDragDisabled }: Tileprops) {
   return (
@@ -12,7 +13,10 @@ export default function Tile({ letter, index, id, isDragDisabled }: Tileprops) {
           {...provided.dragHandleProps}
           className={styles.tile}
         >
-          <div className={styles.letter}>{letter}</div>
+          <div className={styles.letter}>{letter !== "*" && letter}</div>
+          <span className={styles.score}>
+            {letter !== "*" && score[letter]}
+          </span>
         </div>
       )}
     </Draggable>
