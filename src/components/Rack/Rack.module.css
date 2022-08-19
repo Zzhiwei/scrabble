@@ -1,7 +1,5 @@
 .Rack {
   width: 302px;
-  /* justify-content: center; */
-  margin: auto;
   display: flex;
   border: 4px solid black;
   border-radius: 3px;
@@ -9,4 +7,6 @@
 
 .rackWrapper {
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }

@@ -10,6 +10,7 @@ import {
   tileRetractedToRack,
   tileMovedOnBoard,
   moveConfirmed,
+  tileDrawn,
 } from "store/game/slice";
 
 const verticalLabels = new Array(15).fill(1).map((x, index) => {
@@ -33,9 +34,14 @@ const horizontalLabels = new Array(15).fill(1).map((x, index) => {
 const Board = () => {
   const dispatch = useAppDispatch();
   const boardState = useAppSelector((state) => state.game.board);
+  const numTilesLeft = useAppSelector((state) => state.game.rack.length);
 
   const onConfirm = () => {
+    const numToDraw = 7 - numTilesLeft;
     dispatch(moveConfirmed());
+    for (let i = 0; i < numToDraw; i++) {
+      dispatch(tileDrawn());
+    }
   };
 
   const onDragEnd = (result: DropResult) => {

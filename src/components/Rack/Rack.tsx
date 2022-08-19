@@ -44,6 +44,7 @@ export default function Rack() {
           );
         }}
       </Droppable>
+      <button>hello</button>
     </div>
   );
 }
