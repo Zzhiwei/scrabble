@@ -6,12 +6,16 @@
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(15, 1fr);
   gap: 3px;
+  background-color: black;
+  border-radius: 5px;
+  border: black 3px solid;
 }
 
 .outer_container {
   margin: auto;
   margin-top: 10px;
   width: fit-content;
+  margin-top: max(10vh, 60px);
 }
 
 .vertical_label {

@@ -29,20 +29,22 @@ export default function Rack() {
   }, []);
 
   return (
-    <Droppable droppableId="rack" direction="horizontal">
-      {(provided, snapshot) => {
-        return (
-          <div
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-            className={styles.Rack}
-          >
-            <TilesInRack rack={rack} key={tempKey.current} />
-            {provided.placeholder}
-          </div>
-        );
-      }}
-    </Droppable>
+    <div className={styles.rackWrapper}>
+      <Droppable droppableId="rack" direction="horizontal">
+        {(provided, snapshot) => {
+          return (
+            <div
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className={styles.Rack}
+            >
+              <TilesInRack rack={rack} key={tempKey.current} />
+              {provided.placeholder}
+            </div>
+          );
+        }}
+      </Droppable>
+    </div>
   );
 }
 
@@ -50,7 +52,6 @@ const TilesInRack = ({ rack }: TilesInRackProps): JSX.Element => {
   return (
     <>
       {rack.map((tile, index) => {
-        console.log(tile, index);
         return (
           <Tile
             key={index}
