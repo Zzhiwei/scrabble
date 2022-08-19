@@ -6,6 +6,7 @@ import {
   TilePlacedPayload,
   TileRetractedToRackPayload,
 } from "interface/store/game";
+import { BoardTile, Tile } from "interface/store/initialData";
 import { initialState, NULL_TILE } from "store/game/initialData";
 
 const gameSlice = createSlice({
@@ -30,6 +31,18 @@ const gameSlice = createSlice({
 
       //remove tile from squre
       state.board.splice(action.payload.squareIndex, 1, NULL_TILE);
+    },
+    retractAll(state) {
+      const retractedTiles: any[] = [];
+      state.board = state.board.map((tile) => {
+        if (!tile.fixed) {
+          retractedTiles.push(tile);
+          return NULL_TILE;
+        }
+        return tile;
+      });
+
+      state.rack = [...state.rack, ...retractedTiles];
     },
     tileDrawn(state) {
       const len = state.bag.length;
@@ -81,6 +94,7 @@ export const {
   tileRetractedToRack,
   clearRack,
   tileMovedOnBoard,
+  retractAll,
   moveConfirmed,
 } = gameSlice.actions;
 

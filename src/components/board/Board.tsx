@@ -1,6 +1,7 @@
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
+
 import Square from "components/Square/Square";
 import styles from "components/board/Board.module.css";
-import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import Rack from "components/Rack/Rack";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import {
@@ -11,30 +12,17 @@ import {
   tileMovedOnBoard,
   moveConfirmed,
   tileDrawn,
+  retractAll,
 } from "store/game/slice";
-
-const verticalLabels = new Array(15).fill(1).map((x, index) => {
-  return (
-    <div key={index} className={styles.vertical_label}>
-      {index + 1}
-    </div>
-  );
-});
-
-const horizontalLabels = new Array(15).fill(1).map((x, index) => {
-  return (
-    <div key={index} className={styles.horizontal_label}>
-      {String.fromCharCode(index + 65)}
-    </div>
-  );
-});
-
-// board doesn't make use of index in 'source' and 'destination' property
 
 const Board = () => {
   const dispatch = useAppDispatch();
   const boardState = useAppSelector((state) => state.game.board);
   const numTilesLeft = useAppSelector((state) => state.game.rack.length);
+
+  const onRetractAll = () => {
+    dispatch(retractAll());
+  };
 
   const onConfirm = () => {
     const numToDraw = 7 - numTilesLeft;
@@ -99,29 +87,57 @@ const Board = () => {
   };
 
   return (
-    <>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className={styles.outer_container}>
-          <div className={styles.horizontal_label_container}>
-            {horizontalLabels}
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className={styles.outer_container}>
+        <div className={styles.horizontal_label_container}>
+          {horizontalLabels}
+        </div>
+        <div className={styles.flexWrapper}>
+          <div className={styles.vertical_label_container}>
+            {verticalLabels}
           </div>
-          <div style={{ display: "flex" }}>
-            <div className={styles.vertical_label_container}>
-              {verticalLabels}
-            </div>
-            <div className={styles.Board_container}>
-              {boardState.map((tile, index) => {
-                return <Square key={index} index={index} tile={tile} />;
-              })}
-            </div>
+          <div className={styles.Board_container}>
+            {boardState.map((tile, index) => {
+              return <Square key={index} index={index} tile={tile} />;
+            })}
           </div>
         </div>
-
+      </div>
+      <div className={styles.rackWrapper}>
         <Rack />
-      </DragDropContext>
-      <button onClick={onConfirm}>Confirm Moves</button>
-    </>
+        <div className={styles.tooltipWrapper}>
+          <button onClick={onRetractAll} className={styles.button}>
+            RETRACT
+          </button>
+          <div className={styles.tooltip}>retracts all unconfirmed tiles</div>
+        </div>
+        <div className={styles.tooltipWrapper}>
+          <button onClick={onConfirm} className={styles.button}>
+            PLACE TILES
+          </button>
+          <div className={styles.tooltip}>
+            fix tiles on the board, automatically draw new tiles
+          </div>
+        </div>
+      </div>
+    </DragDropContext>
   );
 };
+
+const verticalLabels = new Array(15).fill(1).map((x, index) => {
+  return (
+    <div key={index} className={styles.vertical_label}>
+      {index + 1}
+    </div>
+  );
+});
+
+const horizontalLabels = new Array(15).fill(1).map((x, index) => {
+  return (
+    <div key={index} className={styles.horizontal_label}>
+      {String.fromCharCode(index + 65)}
+    </div>
+  );
+});
 
 export default Board;

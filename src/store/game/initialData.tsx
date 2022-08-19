@@ -112,5 +112,5 @@ export const NULL_TILE: BoardTile = {
 export const initialState: InitialState = {
   board: new Array(225).fill(NULL_TILE),
   rack: [],
-  bag: bag,
+  bag,
 };
