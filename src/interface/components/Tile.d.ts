@@ -3,4 +3,5 @@ export interface Tileprops {
   index: number;
   id: string;
   isDragDisabled: boolean;
+  unSelected?: boolean;
 }

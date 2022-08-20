@@ -1514,7 +1514,7 @@
 
 "@reduxjs/toolkit@^1.8.2":
   version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.8.2.tgz#352fd17bc858af51d21ce8d28183a930cab9e638"
+  resolved "https://registry.npmjs.org/@reduxjs/toolkit/-/toolkit-1.8.2.tgz"
   integrity sha512-CtPw5TkN1pHRigMFCOS/0qg3b/yfPV5qGCsltVnIz7bx4PKTJlGHYfIxm97qskLknMzuGfjExaYdXJ77QTL0vg==
   dependencies:
     immer "^9.0.7"
@@ -1758,7 +1758,7 @@
 
 "@types/axios@^0.14.0":
   version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@types/axios/-/axios-0.14.0.tgz#ec2300fbe7d7dddd7eb9d3abf87999964cafce46"
+  resolved "https://registry.npmjs.org/@types/axios/-/axios-0.14.0.tgz"
   integrity sha512-KqQnQbdYE54D7oa/UmYVMZKq7CO4l8DEENzOKc4aBRwxCXSlJXGz83flFx5L7AWrOQnmuN3kVsRdt+GZPPjiVQ==
   dependencies:
     axios "*"
@@ -1894,6 +1894,11 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
+"@types/howler@^2.2.7":
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.2.7.tgz#5acfbed57f9e1d99b8dabe1b824729e1c1ea1fae"
+  integrity sha512-PEZldwZqJJw1PWRTpupyC7ajVTZA8aHd8nB/Y0n6zRZi5u8ktYDntsHj13ltEiBRqWwF06pASxBEvCTxniG8eA==
+
 "@types/html-minifier-terser@^6.0.0":
   version "6.1.0"
   resolved "https://registry.npmjs.org/@types/html-minifier-terser/-/html-minifier-terser-6.1.0.tgz"
@@ -1998,7 +2003,7 @@
 
 "@types/react-beautiful-dnd@^13.1.2":
   version "13.1.2"
-  resolved "https://registry.yarnpkg.com/@types/react-beautiful-dnd/-/react-beautiful-dnd-13.1.2.tgz#510405abb09f493afdfd898bf83995dc6385c130"
+  resolved "https://registry.npmjs.org/@types/react-beautiful-dnd/-/react-beautiful-dnd-13.1.2.tgz"
   integrity sha512-+OvPkB8CdE/bGdXKyIhc/Lm2U7UAYCCJgsqmopFmh9gbAudmslkI8eOrPDjg4JhwSE6wytz4a3/wRjKtovHVJg==
   dependencies:
     "@types/react" "*"
@@ -2087,7 +2092,7 @@
 
 "@types/use-sync-external-store@^0.0.3":
   version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
+  resolved "https://registry.npmjs.org/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz"
   integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
 
 "@types/ws@^8.5.1":
@@ -2631,9 +2636,9 @@ axe-core@^4.3.5:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.4.2.tgz"
   integrity sha512-LVAaGp/wkkgYJcjmHsoKx4juT1aQvJyPcW09MLCjVTh3V2cc6PnyempiLMNH5iMdfIX/zdbjUx2KDjMLCTdPeA==
 
-axios@*, axios@^0.27.2:
+axios@*:
   version "0.27.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.27.2.tgz"
   integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
   dependencies:
     follow-redirects "^1.14.9"
@@ -4446,7 +4451,7 @@ form-data@^3.0.0:
 
 form-data@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.0.tgz#93919daeaf361ee529584b9b31664dc12c9fa452"
+  resolved "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz"
   integrity sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
   dependencies:
     asynckit "^0.4.0"
@@ -4719,6 +4724,11 @@ hoopy@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npmjs.org/hoopy/-/hoopy-0.1.4.tgz"
   integrity sha512-HRcs+2mr52W0K+x8RzcLzuPPmVIKMSv97RGHy0Ea9y/mpcaK+xTrjICA04KAHi4GRzxliNqNJEFYWHghy3rSfQ==
+
+howler@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/howler/-/howler-2.2.3.tgz#a2eff9b08b586798e7a2ee17a602a90df28715da"
+  integrity sha512-QM0FFkw0LRX1PR8pNzJVAY25JhIWvbKMBFM4gqk+QdV+kPXOhleWGCB6AiAF/goGjIHK2e/nIElplvjQwhr0jg==
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -7283,7 +7293,7 @@ react-dom@^18.1.0:
 
 react-error-boundary@^3.1.4:
   version "3.1.4"
-  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.4.tgz#255db92b23197108757a888b01e5b729919abde0"
+  resolved "https://registry.npmjs.org/react-error-boundary/-/react-error-boundary-3.1.4.tgz"
   integrity sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==
   dependencies:
     "@babel/runtime" "^7.12.5"
@@ -7322,7 +7332,7 @@ react-redux@^7.2.0:
 
 react-redux@^8.0.2:
   version "8.0.2"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-8.0.2.tgz#bc2a304bb21e79c6808e3e47c50fe1caf62f7aad"
+  resolved "https://registry.npmjs.org/react-redux/-/react-redux-8.0.2.tgz"
   integrity sha512-nBwiscMw3NoP59NFCXFf02f8xdo+vSHT/uZ1ldDwF7XaTpzm+Phk97VT4urYBl5TYAPNVaFm12UHAEyzkpNzRA==
   dependencies:
     "@babel/runtime" "^7.12.1"
@@ -8535,7 +8545,7 @@ use-memo-one@^1.1.1:
 
 use-sync-external-store@^1.0.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.1.0.tgz#3343c3fe7f7e404db70f8c687adf5c1652d34e82"
+  resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.1.0.tgz"
   integrity sha512-SEnieB2FPKEVne66NpXPd1Np4R1lTNKfjuy3XdIoPQKYBAFdzbzSZlSn1KJZUiihQLQC5Znot4SBz1EOTBwQAQ==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:

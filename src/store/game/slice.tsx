@@ -5,8 +5,9 @@ import {
   TileMovedOnBoardPayload,
   TilePlacedPayload,
   TileRetractedToRackPayload,
+  TilesSwappedPayload,
 } from "interface/store/game";
-import { BoardTile, Tile } from "interface/store/initialData";
+import { Tile } from "interface/store/initialData";
 import { initialState, NULL_TILE } from "store/game/initialData";
 
 const gameSlice = createSlice({
@@ -61,9 +62,6 @@ const gameSlice = createSlice({
       const [removedLetter] = state.rack.splice(sourceIndex, 1);
       state.rack.splice(destinationIndex, 0, removedLetter);
     },
-    clearRack(state) {
-      state.rack = [];
-    },
     tileMovedOnBoard(state, action: PayloadAction<TileMovedOnBoardPayload>) {
       const { sourceIndex, destinationIndex } = action.payload;
       const oldTile = state.board[sourceIndex];
@@ -73,7 +71,6 @@ const gameSlice = createSlice({
     },
     moveConfirmed(state) {
       state.board = state.board.map((tile) => {
-        //NULL_TILE is true
         if (!tile.fixed) {
           return {
             ...tile,
@@ -82,6 +79,22 @@ const gameSlice = createSlice({
         }
         return tile;
       });
+    },
+    returnTilesToBag(state, action: PayloadAction<TilesSwappedPayload>) {
+      const [selectedTiles, remainingTiles] = state.rack.reduce(
+        (result: [Tile[], Tile[]], tile: Tile) => {
+          if (action.payload.selected.includes(tile.id)) {
+            result[0].push(tile);
+          } else {
+            result[1].push(tile);
+          }
+          return result;
+        },
+        [[], []]
+      );
+
+      state.rack = remainingTiles;
+      state.bag = [...state.bag, ...selectedTiles];
     },
   },
 });
@@ -92,10 +105,10 @@ export const {
   removedFromRack,
   rackRearranged,
   tileRetractedToRack,
-  clearRack,
   tileMovedOnBoard,
   retractAll,
   moveConfirmed,
+  returnTilesToBag,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

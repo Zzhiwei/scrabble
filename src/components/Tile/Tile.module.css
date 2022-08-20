@@ -28,3 +28,11 @@
   z-index: 10;
   font-family: sans-serif;
 }
+
+.unSelected {
+  background-color: rgba(94, 82, 60, 0.3);
+  border-left: rgba(95, 86, 70, 0.3) 2px solid;
+  border-top: rgba(95, 86, 70, 0.3) 2px solid;
+  border-bottom: rgba(79, 66, 51, 0.3) 2px solid;
+  border-right: rgba(79, 66, 51, 0.3) 2px solid;
+}

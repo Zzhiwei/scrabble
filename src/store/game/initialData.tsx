@@ -99,8 +99,8 @@ export const bag: Bag = [
   { letter: "y", id: "y1" },
   { letter: "y", id: "y2" },
   { letter: "z", id: "z1" },
-  { letter: "*", id: "blank1" },
-  { letter: "*", id: "blank2" },
+  { letter: "*", id: "*1" },
+  { letter: "*", id: "*2" },
 ];
 
 export const NULL_TILE: BoardTile = {

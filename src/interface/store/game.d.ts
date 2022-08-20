@@ -24,3 +24,7 @@ export interface TileMovedOnBoardPayload {
   sourceIndex: number;
   destinationIndex: number;
 }
+
+export interface TilesSwappedPayload {
+  selected: string[];
+}
