@@ -17,7 +17,6 @@ const Board = () => {
     onConfirmSwap,
     onRetractAll,
     onConfirmPlacement,
-    setIsSwapping,
     onShuffle,
     onReset,
     onClickSwap,
