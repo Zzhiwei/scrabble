@@ -55,6 +55,12 @@ const useGameControl = () => {
     }
   };
 
+  const onClickSwap = () => {
+    if (numTilesLeft !== 0) {
+      setIsSwapping(true);
+    }
+  };
+
   const onConfirmSwap = () => {
     shakeSound.play();
     dispatch(
@@ -140,6 +146,7 @@ const useGameControl = () => {
     setIsSwapping,
     onShuffle,
     onReset,
+    onClickSwap,
   };
 };
 

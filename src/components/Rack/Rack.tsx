@@ -1,29 +1,11 @@
-import { useEffect } from "react";
 import { Droppable } from "react-beautiful-dnd";
 
 import styles from "components/Rack/Rack.module.css";
 import Tile from "components/Tile/Tile";
-import { tileDrawn } from "store/game/slice";
-import { useAppDispatch, useAppSelector } from "store/hook";
-
-let initialized = false;
+import { useAppSelector } from "store/hook";
 
 export default function Rack() {
   const rack = useAppSelector((state) => state.game.rack);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (initialized || rack.length) {
-      return;
-    }
-
-    for (let i = 0; i < 7; i++) {
-      dispatch(tileDrawn());
-    }
-
-    initialized = true;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div className={styles.rackWrapper}>

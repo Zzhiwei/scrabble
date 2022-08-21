@@ -20,6 +20,7 @@ const Board = () => {
     setIsSwapping,
     onShuffle,
     onReset,
+    onClickSwap,
   } = useGameControl();
 
   return (
@@ -71,10 +72,7 @@ const Board = () => {
                 </div>
               </div>
               <div className={styles.tooltipWrapper}>
-                <button
-                  onClick={() => setIsSwapping(true)}
-                  className={styles.button}
-                >
+                <button onClick={onClickSwap} className={styles.button}>
                   SWAP TILES
                 </button>
                 <div className={styles.tooltip}>swap selected tiles</div>

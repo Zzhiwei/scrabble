@@ -10,7 +10,7 @@ export const layout: Record<string, string> = {
   "8": "",
   "9": "",
   "10": "",
-  "11": "dw",
+  "11": "dl",
   "12": "",
   "13": "",
   "14": "tw",
