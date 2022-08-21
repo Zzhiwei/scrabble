@@ -51,6 +51,7 @@ const useGameControl = () => {
   const onReset = () => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm("Are you sure you want to reset the board?")) {
+      restartSound.play();
       dispatch(gameReset());
     }
   };
@@ -163,7 +164,11 @@ const confirmSound = new Howl({
 });
 
 const shakeSound = new Howl({
-  src: ["/sound/shakeBag.mp3"],
+  src: ["/sound/swapTiles.mp3"],
+});
+
+const restartSound = new Howl({
+  src: ["/sound/restart.mp3"],
 });
 
 export default useGameControl;
