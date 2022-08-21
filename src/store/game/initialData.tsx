@@ -1,6 +1,6 @@
-import type { Bag, BoardTile, InitialState } from "interface/store/initialData";
+import type { Bag, BoardTile, GameState } from "interface/store/initialData";
 
-export const bag: Bag = [
+export const INIT_BAG: Bag = [
   { letter: "a", id: "a1" },
   { letter: "a", id: "a2" },
   { letter: "a", id: "a3" },
@@ -109,8 +109,25 @@ export const NULL_TILE: BoardTile = {
   fixed: true,
 };
 
-export const initialState: InitialState = {
-  board: new Array(225).fill(NULL_TILE),
-  rack: [],
-  bag,
-};
+const stateString = localStorage.getItem("game");
+const parsedState = stateString && JSON.parse(stateString);
+
+export function getInitialState() {
+  const state: GameState = {
+    board: new Array(225).fill(NULL_TILE),
+    rack: [],
+    bag: [...INIT_BAG],
+  };
+
+  for (let i = 0; i < 7; i++) {
+    const len = state.bag.length;
+    const randIndex = Math.floor(Math.random() * len); //[0, len)
+    //remove from bag
+    const [removedLetter] = state.bag.splice(randIndex, 1);
+    state.rack.push(removedLetter);
+  }
+
+  return state;
+}
+
+export const gameState: GameState = parsedState || getInitialState();

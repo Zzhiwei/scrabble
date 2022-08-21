@@ -13,7 +13,7 @@ export default function Rack() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (initialized) {
+    if (initialized || rack.length) {
       return;
     }
 

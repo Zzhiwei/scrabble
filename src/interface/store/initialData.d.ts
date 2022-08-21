@@ -11,7 +11,7 @@ export interface BoardTile {
 
 export type Bag = Array<Tile>;
 
-export interface InitialState {
+export interface GameState {
   board: BoardTile[];
   rack: Tile[];
   bag: Tile[];

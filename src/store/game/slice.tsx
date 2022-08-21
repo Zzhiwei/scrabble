@@ -1,4 +1,3 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   RackRearrangedPayload,
   RemovedFromRackPayload,
@@ -7,12 +6,16 @@ import {
   TileRetractedToRackPayload,
   TilesSwappedPayload,
 } from "interface/store/game";
+
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { Tile } from "interface/store/initialData";
-import { initialState, NULL_TILE } from "store/game/initialData";
+import { gameState, getInitialState, NULL_TILE } from "store/game/initialData";
+import shuffle from "store/utils/shuffle";
 
 const gameSlice = createSlice({
   name: "game",
-  initialState,
+  initialState: gameState,
   reducers: {
     tilePlaced(state, action: PayloadAction<TilePlacedPayload>) {
       state.board[action.payload.index] = {
@@ -96,6 +99,14 @@ const gameSlice = createSlice({
       state.rack = remainingTiles;
       state.bag = [...state.bag, ...selectedTiles];
     },
+    tilesShuffled(state) {
+      const newRack = [...state.rack];
+      shuffle(newRack);
+      state.rack = newRack;
+    },
+    gameReset() {
+      return getInitialState();
+    },
   },
 });
 
@@ -109,6 +120,8 @@ export const {
   retractAll,
   moveConfirmed,
   returnTilesToBag,
+  tilesShuffled,
+  gameReset,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

@@ -19,6 +19,7 @@ const SwapRack = ({ setSelectedTiles, selectedTiles }: SwapRackProps) => {
             >
               {rack.map((tile, index) => (
                 <div
+                  key={tile.id}
                   onClick={() =>
                     setSelectedTiles((state) => {
                       if (state.includes(tile.id)) {
