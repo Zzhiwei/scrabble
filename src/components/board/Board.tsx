@@ -1,11 +1,10 @@
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext } from 'react-beautiful-dnd'
 
-import Square from "components/Square/Square";
-import styles from "components/board/Board.module.css";
-import Rack from "components/Rack/Rack";
-
-import SwapRack from "components/Rack/SwapRack";
-import useGameControl from "components/hooks/useGameControl";
+import styles from 'components/board/Board.module.css'
+import Rack from 'components/Rack/Rack'
+import Square from 'components/Square/Square'
+import useGameControl from 'components/hooks/useGameControl'
+import SwapRack from 'components/Rack/SwapRack'
 
 const Board = () => {
   const {
@@ -20,7 +19,7 @@ const Board = () => {
     onShuffle,
     onReset,
     onClickSwap,
-  } = useGameControl();
+  } = useGameControl()
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
@@ -34,7 +33,7 @@ const Board = () => {
           </div>
           <div className={styles.Board_container}>
             {boardState.map((tile, index) => {
-              return <Square key={index} index={index} tile={tile} />;
+              return <Square key={index} index={index} tile={tile} />
             })}
           </div>
         </div>
@@ -87,23 +86,23 @@ const Board = () => {
         )}
       </div>
     </DragDropContext>
-  );
-};
+  )
+}
 
 const verticalLabels = new Array(15).fill(1).map((x, index) => {
   return (
     <div key={index} className={styles.vertical_label}>
       {index + 1}
     </div>
-  );
-});
+  )
+})
 
 const horizontalLabels = new Array(15).fill(1).map((x, index) => {
   return (
     <div key={index} className={styles.horizontal_label}>
       {String.fromCharCode(index + 65)}
     </div>
-  );
-});
+  )
+})
 
-export default Board;
+export default Board

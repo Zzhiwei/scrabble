@@ -1,6 +1,6 @@
-import { BoardTile } from "interface/store/initialData";
+import { BoardTile } from 'interface/store/initialData'
 
 export interface SquareProps {
-  tile: BoardTile;
-  index: number;
+  tile: BoardTile
+  index: number
 }

@@ -1,11 +1,11 @@
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable } from 'react-beautiful-dnd'
 
-import styles from "components/Rack/Rack.module.css";
-import Tile from "components/Tile/Tile";
-import { useAppSelector } from "store/hook";
+import styles from 'components/Rack/Rack.module.css'
+import Tile from 'components/Tile/Tile'
+import { useAppSelector } from 'store/hook'
 
 const SwapRack = ({ setSelectedTiles, selectedTiles }: SwapRackProps) => {
-  const rack = useAppSelector((state) => state.game.rack);
+  const rack = useAppSelector((state) => state.game.rack)
 
   return (
     <div className={styles.rackWrapper}>
@@ -23,9 +23,9 @@ const SwapRack = ({ setSelectedTiles, selectedTiles }: SwapRackProps) => {
                   onClick={() =>
                     setSelectedTiles((state) => {
                       if (state.includes(tile.id)) {
-                        return state.filter((id) => tile.id !== id);
+                        return state.filter((id) => tile.id !== id)
                       }
-                      return [...state, tile.id];
+                      return [...state, tile.id]
                     })
                   }
                   className={styles.cursorPointer}
@@ -43,16 +43,16 @@ const SwapRack = ({ setSelectedTiles, selectedTiles }: SwapRackProps) => {
               ))}
               {provided.placeholder}
             </div>
-          );
+          )
         }}
       </Droppable>
     </div>
-  );
-};
-
-interface SwapRackProps {
-  setSelectedTiles: React.Dispatch<React.SetStateAction<string[]>>;
-  selectedTiles: string[];
+  )
 }
 
-export default SwapRack;
+interface SwapRackProps {
+  setSelectedTiles: React.Dispatch<React.SetStateAction<string[]>>
+  selectedTiles: string[]
+}
+
+export default SwapRack

@@ -1,7 +1,7 @@
-import Board from "components/board/Board";
+import Board from 'components/board/Board'
 
 function App() {
-  return <Board />;
+  return <Board />
 }
 
-export default App;
+export default App

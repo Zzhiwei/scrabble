@@ -1,8 +1,8 @@
-import { Draggable } from "react-beautiful-dnd";
+import { Draggable } from 'react-beautiful-dnd'
 
-import styles from "components/Tile/Tile.module.css";
-import { Tileprops } from "interface/components/Tile";
-import { score } from "constant/score";
+import styles from 'components/Tile/Tile.module.css'
+import { score } from 'constant/score'
+import { Tileprops } from 'interface/components/Tile'
 
 const Tile = ({ letter, index, id, isDragDisabled, unSelected }: Tileprops) => {
   return (
@@ -14,14 +14,14 @@ const Tile = ({ letter, index, id, isDragDisabled, unSelected }: Tileprops) => {
           {...provided.dragHandleProps}
           className={`${styles.tile} ${unSelected && styles.unSelected}`}
         >
-          <div className={styles.letter}>{letter !== "*" && letter}</div>
+          <div className={styles.letter}>{letter !== '*' && letter}</div>
           <span className={styles.score}>
-            {letter !== "*" && score[letter]}
+            {letter !== '*' && score[letter]}
           </span>
         </div>
       )}
     </Draggable>
-  );
-};
+  )
+}
 
-export default Tile;
+export default Tile

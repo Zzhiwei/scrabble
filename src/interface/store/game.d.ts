@@ -1,30 +1,30 @@
 export interface TilePlacedPayload {
-  index: number;
-  id: string;
-  letter: string;
+  index: number
+  id: string
+  letter: string
 }
 
 export interface TileRetractedToRackPayload {
-  letter: string;
-  draggableId: string;
-  index: number;
-  squareIndex: number;
+  letter: string
+  draggableId: string
+  index: number
+  squareIndex: number
 }
 
 export interface RemovedFromRackPayload {
-  draggableId: string;
+  draggableId: string
 }
 
 export interface RackRearrangedPayload {
-  sourceIndex: number;
-  destinationIndex: number;
+  sourceIndex: number
+  destinationIndex: number
 }
 
 export interface TileMovedOnBoardPayload {
-  sourceIndex: number;
-  destinationIndex: number;
+  sourceIndex: number
+  destinationIndex: number
 }
 
 export interface TilesSwappedPayload {
-  selected: string[];
+  selected: string[]
 }

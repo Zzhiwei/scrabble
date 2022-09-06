@@ -25,4 +25,4 @@ export const score: Record<string, number> = {
   x: 8,
   q: 10,
   z: 10,
-};
+}

@@ -1,5 +1,5 @@
-import { BoardTile } from "interface/store/initialData";
+import { BoardTile } from 'interface/store/initialData'
 
-export interface BoardTileWithIndex extends BoardTile{
-    index: number;
+export interface BoardTileWithIndex extends BoardTile {
+  index: number
 }

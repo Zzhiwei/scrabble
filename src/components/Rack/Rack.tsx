@@ -1,11 +1,11 @@
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable } from 'react-beautiful-dnd'
 
-import styles from "components/Rack/Rack.module.css";
-import Tile from "components/Tile/Tile";
-import { useAppSelector } from "store/hook";
+import styles from 'components/Rack/Rack.module.css'
+import Tile from 'components/Tile/Tile'
+import { useAppSelector } from 'store/hook'
 
 export default function Rack() {
-  const rack = useAppSelector((state) => state.game.rack);
+  const rack = useAppSelector((state) => state.game.rack)
 
   return (
     <div className={styles.rackWrapper}>
@@ -28,9 +28,9 @@ export default function Rack() {
               ))}
               {provided.placeholder}
             </div>
-          );
+          )
         }}
       </Droppable>
     </div>
-  );
+  )
 }

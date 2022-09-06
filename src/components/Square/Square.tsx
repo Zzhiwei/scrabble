@@ -1,14 +1,14 @@
-import { SquareProps } from "interface/components/Square";
+import { SquareProps } from 'interface/components/Square'
 
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable } from 'react-beautiful-dnd'
 
-import styles from "components/Square/Square.module.css";
-import Tile from "components/Tile/Tile";
-import { layout } from "constant/layout";
-import { multiplierMap } from "constant/multiplier";
+import styles from 'components/Square/Square.module.css'
+import Tile from 'components/Tile/Tile'
+import { layout } from 'constant/layout'
+import { multiplierMap } from 'constant/multiplier'
 
 const Square = ({ tile, index }: SquareProps) => {
-  const multipler = layout[index.toString()];
+  const multipler = layout[index.toString()]
 
   return (
     <Droppable
@@ -20,7 +20,7 @@ const Square = ({ tile, index }: SquareProps) => {
           ref={provided.innerRef}
           {...provided.droppableProps}
           className={`${styles.Square} ${
-            snapshot.isDraggingOver ? styles.highlight : ""
+            snapshot.isDraggingOver ? styles.highlight : ''
           } ${styles[multipler]}`}
         >
           <div className={styles.multiplierText}>
@@ -38,7 +38,7 @@ const Square = ({ tile, index }: SquareProps) => {
         </div>
       )}
     </Droppable>
-  );
-};
+  )
+}
 
-export default Square;
+export default Square

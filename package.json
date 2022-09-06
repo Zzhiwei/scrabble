@@ -4,20 +4,10 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/axios": "^0.14.0",
-    "@types/howler": "^2.2.7",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
     "howler": "^2.2.3",
     "react": "^18.1.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^18.1.0",
-    "react-error-boundary": "^3.1.4",
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2",
@@ -48,6 +38,18 @@
     ]
   },
   "devDependencies": {
-    "@types/react-beautiful-dnd": "^13.1.2"
-  }
+    "@types/howler": "^2.2.7",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-beautiful-dnd": "^13.1.2",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "eslint": "^8.23.0",
+    "eslint-plugin-react": "^7.31.7",
+    "prettier": "2.7.1"
+  },
+  "repository": "https://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@github.com/softmagnet/scrabble.git",
+  "author": "Zzhiwei <zhiwei3141@gmail.com>",
+  "license": "MIT"
 }
